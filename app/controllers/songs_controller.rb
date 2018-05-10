@@ -1,5 +1,15 @@
 class SongsController < ApplicationController
   def index
+    #needs to see if artist can be found 
+    #has to deal with edge cases where the person enters in something that causes an Active Record exception
+    #maybe a model method to see if the Artist exists in the database
+    #Artist.where(id: '12345').first
+    #Artist.where(id: 'abc') both of these return an empty relation
+    #Artist.where(id: '12345').first == true
+    #Artist.where(id: 'abc').first == true both of these return false
+    
+    byebug
+    Artist.artist_exists?(params[:artist_id])
     if params[:artist_id]
       if params[:artist_id].class == Integer
         @songs = Artist.find(params[:artist_id]).songs
