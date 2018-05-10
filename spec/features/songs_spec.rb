@@ -11,12 +11,14 @@ describe "songs", type:  :feature do
     describe "/artists/:artist_id/songs" do
       it "displays the songs with valid artist" do
         visit artist_songs_path(@artist)
-        #all of the songs for a particular artist 
+        #all of the songs for a particular artist
         expect(page).to have_text(@song.title)
       end
 
       it "redirects to /artists with invalid artist" do
         visit artist_songs_path(1234)
+        #all of the songs by a particular artist
+        #songs#index path
         expect(page).to have_link(@artist.name, href: artist_songs_path(@artist))
         expect(page).to have_text("Artist not found")
       end
