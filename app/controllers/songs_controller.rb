@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  
+
   def index
     if params[:artist_id]
       if Artist.exists?(params[:artist_id])
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
         redirect_to artist_songs_path(@artist)
       end
     end
-    
+
   end
 
   def new
@@ -70,4 +70,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :artist_name)
   end
 end
-
