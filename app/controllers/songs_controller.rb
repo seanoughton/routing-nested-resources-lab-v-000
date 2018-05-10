@@ -29,18 +29,6 @@ class SongsController < ApplicationController
     else
       @song = Song.find(params[:id])
     end
-=begin
-    if Song.exists?(params[:id])
-      @song = Song.find(params[:id])
-    else
-      if Artist.exists?(params[:artist_id])
-        @artist = Artist.find(params[:artist_id])
-        flash[:alert] = "Song not found."
-        #flash[:message] = "Song not found."
-        redirect_to artist_songs_path(@artist)
-      end
-    end
-=end
   end
 
   def new
