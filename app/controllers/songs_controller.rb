@@ -17,17 +17,17 @@ class SongsController < ApplicationController
   end
 
   def show
+    byebug
     #redirects to artists songs when artist song not found
     #if the params has an artist id, then you set the artist, you set the song
     #if there is no song, then you need to redirect_to artist_songs_path(@artist), alert: "Song not found"
-    if !Song.exists?(params[:id])
-      flash[:alert] = "Song not found."
-      redirect_to artist_songs_path(@artist)
-    end
     if params[:artist_id]
-      if Artist.exists?(params[:artist_id])
+      if Artist.exists?(params[:artist_id]) && Song.exists?(params[:id])
           @artist = Artist.find(params[:artist_id])
           @song = @artist.songs.find_by(id: params[:id])
+      else
+        flash[:alert] = "Song not found."
+        redirect_to artist_songs_path(@artist)
       end
     else
       @song = Song.find(params[:id])
