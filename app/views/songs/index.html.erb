@@ -1,4 +1,5 @@
 <ul>
+  <!-- this is either displaying all of the songs or all of the songs by a particular artist, therefore @songs is either all of the songs, or all of the songs belonging to an artist -->
 <% @songs.each do |song| %>
   <li><%= display_artist(song) %> - <%= link_to song.title, song_path(song) %></li>
 <% end %>

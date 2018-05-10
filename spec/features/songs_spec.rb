@@ -11,6 +11,7 @@ describe "songs", type:  :feature do
     describe "/artists/:artist_id/songs" do
       it "displays the songs with valid artist" do
         visit artist_songs_path(@artist)
+        #all of the songs for a particular artist 
         expect(page).to have_text(@song.title)
       end
 
