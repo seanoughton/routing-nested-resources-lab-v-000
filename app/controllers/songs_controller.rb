@@ -14,7 +14,6 @@ class SongsController < ApplicationController
 
   def show
     #redirects to artists songs when artist song not found
-    byebug
     if Song.exists?(params[:id])
       @song = Song.find(params[:id])
     else
