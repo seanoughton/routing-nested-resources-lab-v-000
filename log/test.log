@@ -3282,6 +3282,7 @@ Completed 200 OK in 204ms (Views: 203.0ms | ActiveRecord: 0.2ms)
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
 Processing by SongsController#index as HTML
   Parameters: {"artist_id"=>"abc"}
+<<<<<<< HEAD
   [1m[35mArtist Exists (0.2ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 0]]
 Redirected to http://test.host/artists
 Completed 302 Found in 24ms (ActiveRecord: 0.2ms)
@@ -3408,3 +3409,5 @@ Processing by ArtistsController#index as HTML
   Rendered artists/index.html.erb within layouts/application (7.6ms)
 Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
   [1m[35m (0.3ms)[0m  rollback transaction
+=======
+>>>>>>> df20b13844b7bb2892ba967132f5cddffe3cada4
